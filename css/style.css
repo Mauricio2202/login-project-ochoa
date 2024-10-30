@@ -1,0 +1,45 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: #ad5389;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Raleway", sans-serif;
+    position: relative;
+    background: rgba(214, 214, 214, 0.4);
+    max-width: max-content;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+label {
+    font-size: 25px;
+    margin-bottom: 25px;
+    color: #DDD;
+}
+
+input {
+    padding: 9px;
+    width: 240px;
+    font-family: "Raleway", sans-serif;
+    margin-bottom: 25px;
+    outline: none;
+    font-size: 15px;
+}
