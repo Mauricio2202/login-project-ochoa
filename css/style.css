@@ -25,7 +25,7 @@ form {
     position: relative;
     background: rgba(214, 214, 214, 0.4);
     max-width: max-content;
-    padding: 30px;
+    padding: 25px;
     border-radius: 5px;
 }
 
@@ -42,4 +42,19 @@ input {
     margin-bottom: 25px;
     outline: none;
     font-size: 15px;
+}
+
+button {
+    padding: 8px;
+    width: 200px;
+    font-size: 18px;
+    cursor: pointer;
+    background: #ffb447;
+    color: #FFF;
+    border: none;
+}
+
+button:hover {
+    transition: 1s;
+    background: #f6a228;
 }
