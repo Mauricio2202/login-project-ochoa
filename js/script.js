@@ -1,47 +1,32 @@
-const express = require('express');
-const mysql = require('mysql');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+document.getElementById('loginForm').addEventListener('submit', function (event) {
+    event.preventDefault(); 
 
-const app = express();
-const port = 3000;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-app.use(cors());
-app.use(bodyParser.json());
-
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'LOGIN_WEB' 
-});
-
-db.connect(err => {
-    if (err) {
-        console.error('Error al conectar a la base de datos:', err);
-        return;
-    }
-    console.log('Conectado a la base de datos MySQL');
-});
-
-// Ruta para validar el usuario
-app.post('/login', (req, res) => {
-    const { email, password } = req.body;
-
-    const query = 'SELECT * FROM users WHERE email = ? AND password = ?';
-    db.query(query, [email, password], (err, results) => {
-        if (err) {
-            return res.status(500).send('Error en la consulta a la base de datos');
-        }
-        if (results.length > 0) {
-            res.status(200).send('Inicio de sesión exitoso');
+    // Realiza la solicitud POST al servidor
+    fetch('http://6.128.0.1:3000/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.text();
         } else {
-            res.status(401).send('Credenciales incorrectas');
+            throw new Error('Credenciales incorrectas');
         }
+    })
+    .then(data => {
+        document.getElementById('message').innerText = data;
+        // Redirige a home.html si el login es exitoso
+        if (data === 'Inicio de sesión exitoso') {
+            window.location.href = 'home.html';
+        }
+    })
+    .catch(error => {
+        document.getElementById('message').innerText = error.message;
     });
-});
-
-// Iniciar el servidor
-app.listen(port, () => {
-    console.log(`Servidor corriendo en http://localhost:${port}`);
 });

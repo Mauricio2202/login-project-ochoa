@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bienvenid@</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
+    </style>
+    <style>
+        body {
+            background: black;
+            overflow: hidden;
+        }
+
+        .tv-distortion {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('./img/scream.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: contrast(1.5) brightness(0.8); 
+            animation: subtle-move 5s infinite linear;
+        }
+
+        @keyframes subtle-move {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
+            100% { transform: translateY(0); }
+        }
+
+        .tv-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: repeating-linear-gradient(
+                rgba(0, 0, 0, 0.2) 0px,
+                rgba(0, 0, 0, 0.2) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            opacity: 0.5; 
+            animation: line-move 0.3s infinite linear; 
+        }
+
+        @keyframes line-move {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); }
+        }
+
+        .tv-noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: white;
+            opacity: 0.02;
+            mix-blend-mode: multiply;
+            animation: noise 0.03s infinite;
+        }
+
+        @keyframes noise {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(1px, -1px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        h1 {
+            color: #ff0000;
+            font-family: "Rubik Wet Paint", system-ui;
+            font-size: 3em;
+            letter-spacing: 3px;
+            text-align: center;
+            position: relative;
+            z-index: 1; /* Asegura que el texto esté por encima de otros elementos */
+            margin-top: 20px; /* Espacio por encima del título */
+        }
+
+        .blackList {
+            display: flex;
+            flex-wrap: wrap; /* Permitir que las lápidas se distribuyan en varias filas */
+            justify-content: center; /* Centrar elementos */
+            align-items: center; /* Centrar verticalmente */
+            position: relative;
+            z-index: 1; /* Asegura que la lista esté por encima de otros elementos */
+            margin-top: 50px; /* Espacio por encima de la lista */
+            max-width: 800px; /* Limitar el ancho máximo */
+            margin-left: auto; /* Centrar horizontalmente */
+            margin-right: auto; /* Centrar horizontalmente */
+        }
+
+        .muerte1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrar contenido */
+            margin: 20px; /* Espaciado entre lápidas */
+            width: 150px; /* Ajustar el ancho de cada lápida */
+        }
+
+        .lapid {
+            width: 180px; /* Mantener la proporción de la imagen */
+            height: auto; /* Mantener la proporción de la imagen */
+        }
+
+        h2 {
+            color: #ff0000;
+            font-family: "Rubik Wet Paint", system-ui;
+            text-align: center; /* Centrar texto de los nombres */
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tv-distortion">
+        <h1>La pesadilla informática está por comenzar</h1>
+        <section class="blackList">
+            <div class="muerte1">
+                <img src="./img/lapida.png" alt="lapid" class="lapid">
+                <h2>Mauricio</h2>
+            </div>
+            <div class="muerte1">
+                <img src="./img/lapida.png" alt="lapid" class="lapid">
+                <h2>Josias</h2>
+            </div>
+            <div class="muerte1">
+                <img src="./img/lapida.png" alt="lapid" class="lapid">
+                <h2>Adrián</h2>
+            </div>
+            <div class="muerte1">
+                <img src="./img/lapida.png" alt="lapid" class="lapid">
+                <h2>Mariel</h2>
+            </div>
+            <div class="muerte1">
+                <img src="./img/lapida.png" alt="lapid" class="lapid">
+                <h2>Mireya</h2>
+            </div>
+            <div class="muerte1">
+                <img src="./img/lapida.png" alt="lapid" class="lapid">
+                <h2>Gabriel</h2>
+            </div>
+            <div class="muerte1">
+                <img src="./img/lapida.png" alt="lapid" class="lapid">
+                <h2>Brandon</h2>
+            </div>
+            <div class="muerte1">
+                <img src="./img/lapida.png" alt="lapid" class="lapid">
+                <h2>Román</h2>
+            </div>
+        </section>
+    </div> 
+    <div class="tv-lines"></div> 
+    <div class="tv-noise"></div> 
+
+    <audio autoplay loop>
+        <source src="./img/Revelations.mp4" type="audio/mpeg">
+    </audio>
+</body>
+</html>
